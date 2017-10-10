@@ -10,7 +10,8 @@
 * src/main/webapp 是web项目根目录
 
 ## Spring配置
-spring配置文件位于src/main/resources/spring目录下：
+spring配置文件位于src/main/resources/spring目录下：之所以将配置文件分开，一是大家更改各自的配置文件不会互相影响，另外配置独立，
+容易找到对应的配置，简洁。
 * 主配置文件是application-context.xml。
 * application-mybatis.xml是mybatis的配置
 * application-spring-mvc.xml是Spring MVC的配置文件
@@ -53,3 +54,5 @@ user包是一个样例代码，包含controller，dao，model，service四个子
 `	<!--<import resource="application-mysql.xml" />-->
 	<import resource="application-h2db.xml" />
 `
+* 生产环境，记得删除掉application-h2db.xml和h2db.sql和h2db-user.sql，以及mysql.sql。当然不去掉也没什么影响，就是不够整洁。
+* 生产环境，记得去掉demo的user模块代码，这个只是用来演示。同时避免暴露url（控制器中暴露的），影响安全。
