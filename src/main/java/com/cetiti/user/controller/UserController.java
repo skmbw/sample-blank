@@ -33,7 +33,7 @@ public class UserController {
         if (LOGGER.isDebugEnabled()) { // 如果打印的日志很多，且比较耗性能，建议这样。
             LOGGER.debug("this is [{}] method.", "list"); // 使用占位符
         }
-        return "user/list";
+        return "user/list"; // 规则是`类url/方法url`
     }
 
     /**
