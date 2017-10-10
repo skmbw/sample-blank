@@ -27,10 +27,10 @@ spring配置文件位于src/main/resources/spring目录下：
 ## 基础代码说明
 在包com.cetiti.base下是一些基础的代码：
 * bean包中的JsonBean.java用于和前端进行json的交互
-* dao包中的BaseDao.java是mybatis的一些增删改查的基础方法，要配合mapper.xml文件一起使用，具体的模块的dao直接继承它即可。
+* dao包中的BaseDao.java是mybatis的一些增删改查的基础方法，要配合mapper.xml文件一起使用，具体模块的dao类直接继承它即可。
 这个类是一个泛型类，第一个泛型参数是该DAO对象的model类（数据库表对应的model），第二个是这个model（表）的主键。
 * service包中的BaseService.java是基于BaseDao.java的通用service方法的封装，业务service只要继承它就能获得基本CRUD方法。
-这个类也是一个泛型类，泛型参数的意义和BaseDao是一样的。
+这个类也是一个泛型类，泛型参数的意义和BaseDao是一样的。注意记得实现setBaseDao方法，注入对应的dao对象。
 * exception包中有两个异常，ServiceException用于回滚抛出的异常（基于AOP的事务配置使用到），BasicException是一般的异常。
 
 ## Demo样例代码说明
