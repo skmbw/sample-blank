@@ -22,7 +22,7 @@ spring配置文件位于src/main/resources/spring目录下：之所以将配置�
 在src/main/resources目录下还有其他的配置文件
 * config.properties是项目属性配置文件
 * h2db.sql and h2db-user.sql是h2数据库的测试sql脚本，mysql.sql是mysql数据库的测试脚本
-* log4j2.xml是日志配置文件，是基于log4j2的
+* log4j2.xml是日志配置文件，是基于log4j2的，log4j2的日志性能是log4j的几倍，可以直接使用log4j2，或者slf4j
 * mybatis-config.xml是mybatis的配置文件，配置mybatis的一些特性
 
 ## 基础代码说明
