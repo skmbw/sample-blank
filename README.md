@@ -36,8 +36,8 @@ spring配置文件位于src/main/resources/spring目录下：
 ## Demo样例代码说明
 user包是一个样例代码，包含controller，dao，model，service四个子包。这里dao和service都没有使用接口，因为对于小的项目，
 使用接口没有什么优势，反而多写代码和多建两个接口类。直接使用类即可。
-* 对于控制器，url映射的一般的约定就是，一级url就是类名去掉controller后缀，然后驼峰命名，二级url就是方法名，如果是返回jsp，
-那么jsp文件名就是方法名，返回是视图名就是 “一级url/二级url”。
+* 对于控制器，url映射的一般的约定就是，类级url就是类名去掉controller后缀，然后驼峰命名，方法级url就是方法名，如果是返回jsp，
+那么jsp文件名就是方法名，返回是视图名就是 “类级url/方法级url”。jsp文件的目录结构也是“类级url/方法级url”（见user模块例子）
 * 如果返回json数据，那么统一返回一个JsonBean对象，使用@ResponseBody注解，接收Json参数使用@RequestBody注解
 * 控制器方法体，使用try-catch捕获异常，当然也可以配置SpringMVC的统一异常拦截器，这不冲突。
 
