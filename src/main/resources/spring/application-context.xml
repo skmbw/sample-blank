@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+	
+	<!--<import resource="application-mysql.xml" />-->
+	<import resource="application-h2db.xml" />
+	<import resource="application-mybatis.xml" />
+
+	<!-- 默认是基于java interface代理，proxy-target-class="true"表示基于cglib代理。 expose-proxy="true"表示将aop放到AopContext中，供查询 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!--注解自动装配bean-->
+	<context:annotation-config />
+	
+	<!--自动扫描的基包，包含子包，可以使用切点表达式指定更精确一点。多个用逗号分隔-->
+	<context:component-scan base-package="com.cetiti">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<!-- 读取配置文件 -->
+	<context:property-placeholder location="classpath:config.properties" />
+
+</beans>

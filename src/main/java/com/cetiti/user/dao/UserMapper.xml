@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cetiti.user.dao.UserDao" >
+  <resultMap id="userResultMap" type="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 结果集映射，不含Blob字段。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="last_login_date" property="lastLoginDate" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="asker" property="asker" jdbcType="INTEGER" />
+    <result column="answer" property="answer" jdbcType="INTEGER" />
+    <result column="identity_card" property="identityCard" jdbcType="VARCHAR" />
+    <result column="identity_type" property="identityType" jdbcType="INTEGER" />
+    <result column="alipay" property="alipay" jdbcType="VARCHAR" />
+    <result column="weixin" property="weixin" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="signature" property="signature" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="focus_number" property="focusNumber" jdbcType="BIGINT" />
+    <result column="love_number" property="loveNumber" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - 该表所有字段。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    id, name, nick_name, account, email, mobile, password, register_date, age, last_login_date, 
+    state, level, asker, answer, identity_card, identity_type, alipay, weixin, qq, address, avatar,birthday,summary,
+    signature, title, focus_number, love_number
+  </sql>
+  <sql id="model_where_clause" >
+    <!--
+      WARNING - 根据model条件，查询或更新的where语句。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    <where >
+      <trim prefixOverrides="and" >
+        <if test="name != null" >
+          and name = #{name,jdbcType=VARCHAR}
+        </if>
+        <if test="nickName != null" >
+          and nick_name = #{nickName,jdbcType=VARCHAR}
+        </if>
+        <if test="account != null" >
+          and account = #{account,jdbcType=VARCHAR}
+        </if>
+        <if test="email != null" >
+          and email = #{email,jdbcType=VARCHAR}
+        </if>
+        <if test="mobile != null" >
+          and mobile = #{mobile,jdbcType=VARCHAR}
+        </if>
+        <if test="password != null" >
+          and password = #{password,jdbcType=VARCHAR}
+        </if>
+        <if test="age != null" >
+          and age = #{age,jdbcType=INTEGER}
+        </if>
+        <if test="state != null" >
+          and state = #{state,jdbcType=INTEGER}
+        </if>
+        <if test="level != null" >
+          and level = #{level,jdbcType=INTEGER}
+        </if>
+        <if test="asker != null" >
+          and asker = #{asker,jdbcType=INTEGER}
+        </if>
+        <if test="answer != null" >
+          and answer = #{answer,jdbcType=INTEGER}
+        </if>
+        <if test="identityCard != null" >
+          and identity_card = #{identityCard,jdbcType=VARCHAR}
+        </if>
+        <if test="identityType != null" >
+          and identity_type = #{identityType,jdbcType=INTEGER}
+        </if>
+        <if test="alipay != null" >
+          and alipay = #{alipay,jdbcType=VARCHAR}
+        </if>
+        <if test="weixin != null" >
+          and weixin = #{weixin,jdbcType=VARCHAR}
+        </if>
+        <if test="qq != null" >
+          and qq = #{qq,jdbcType=VARCHAR}
+        </if>
+        <if test="birthday != null" >
+          and birthday = #{birthday,jdbcType=DATE}
+        </if>
+      </trim>
+    </where>
+    <if test="orderBy != null" >
+      order by #{orderBy,jdbcType=VARCHAR}
+    </if>
+    <if test="start != null" >
+      limit #{start,jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+    </if>
+  </sql>
+  <sql id="update_model_where_clause" >
+    <!--
+      WARNING - 根据model条件，更新的where语句。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    <where >
+      <trim prefixOverrides="and" >
+        <if test="params.name != null" >
+          and name = #{params.name,jdbcType=VARCHAR}
+        </if>
+        <if test="params.nickName != null" >
+          and nick_name = #{params.nickName,jdbcType=VARCHAR}
+        </if>
+        <if test="params.account != null" >
+          and account = #{params.account,jdbcType=VARCHAR}
+        </if>
+        <if test="params.email != null" >
+          and email = #{params.email,jdbcType=VARCHAR}
+        </if>
+        <if test="params.mobile != null" >
+          and mobile = #{params.mobile,jdbcType=VARCHAR}
+        </if>
+        <if test="params.password != null" >
+          and password = #{params.password,jdbcType=VARCHAR}
+        </if>
+        <if test="params.age != null" >
+          and age = #{params.age,jdbcType=INTEGER}
+        </if>
+        <if test="params.state != null" >
+          and state = #{params.state,jdbcType=INTEGER}
+        </if>
+        <if test="params.level != null" >
+          and level = #{params.level,jdbcType=INTEGER}
+        </if>
+        <if test="params.asker != null" >
+          and asker = #{params.asker,jdbcType=INTEGER}
+        </if>
+        <if test="params.answer != null" >
+          and answer = #{params.answer,jdbcType=INTEGER}
+        </if>
+        <if test="params.identityCard != null" >
+          and identity_card = #{params.identityCard,jdbcType=VARCHAR}
+        </if>
+        <if test="params.identityType != null" >
+          and identity_type = #{params.identityType,jdbcType=INTEGER}
+        </if>
+        <if test="params.alipay != null" >
+          and alipay = #{params.alipay,jdbcType=VARCHAR}
+        </if>
+        <if test="params.weixin != null" >
+          and weixin = #{params.weixin,jdbcType=VARCHAR}
+        </if>
+        <if test="params.qq != null" >
+          and qq = #{params.qq,jdbcType=VARCHAR}
+        </if>
+        <if test="params.birthday != null" >
+          and birthday = #{params.birthday,jdbcType=DATE}
+        </if>
+      </trim>
+    </where>
+  </sql>
+  <select id="queryList" resultMap="userResultMap" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据params所携带条件查询数据。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+  </select>
+  <select id="pagedList" resultMap="userResultMap" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据params所携带条件分页查询数据。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+  </select>
+  <select id="pageForList" resultMap="userResultMap" parameterType="com.cetiti.user.model.User" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    order by love_number desc
+    limit #{start,jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+  </select>
+  <select id="get" resultMap="userResultMap" parameterType="java.lang.String" >
+    <!--
+      WARNING - 根据主键查询数据。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="getForUpdate" resultMap="userResultMap" parameterType="java.lang.String" >
+    <!--
+      WARNING - 根据主键查询数据，使用 for update 悲观锁。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR} for update
+  </select>
+  <select id="unique" resultMap="userResultMap" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据params所携带条件查询唯一记录。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+  </select>
+  <select id="uniqueForUpdate" resultMap="userResultMap" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据params所携带条件查询唯一记录。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+     for update
+  </select>
+  <delete id="deleteById" parameterType="java.lang.String" >
+    <!--
+      WARNING - 根据主键删除记录。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    delete from user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteBulks" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据params所携带条件删除数据。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+  </delete>
+  <insert id="save" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 插入记录，只有非空字段才会插入到数据库。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="asker != null" >
+        asker,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="identityCard != null" >
+        identity_card,
+      </if>
+      <if test="identityType != null" >
+        identity_type,
+      </if>
+      <if test="alipay != null" >
+        alipay,
+      </if>
+      <if test="weixin != null" >
+        weixin,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="signature != null" >
+        signature,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="focusNumber != null" >
+        focus_number,
+      </if>
+      <if test="loveNumber != null" >
+        love_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDate != null" >
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="asker != null" >
+        #{asker,jdbcType=INTEGER},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=INTEGER},
+      </if>
+      <if test="identityCard != null" >
+        #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="identityType != null" >
+        #{identityType,jdbcType=INTEGER},
+      </if>
+      <if test="alipay != null" >
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="weixin != null" >
+        #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null" >
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="focusNumber != null" >
+        #{focusNumber,jdbcType=BIGINT},
+      </if>
+      <if test="loveNumber != null" >
+        #{loveNumber,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countBy" parameterType="com.cetiti.user.model.User" resultType="java.lang.Integer" >
+    <!--
+      WARNING - 根据params所携带条件计数。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="model_where_clause" />
+    </if>
+  </select>
+  <update id="updateBulks" parameterType="map" >
+    <!--
+      WARNING - 根据params所携带条件更新指定字段。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    update user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickName != null" >
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null" >
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerDate != null" >
+        register_date = #{record.registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.age != null" >
+        age = #{record.age,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLoginDate != null" >
+        last_login_date = #{record.lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.asker != null" >
+        asker = #{record.asker,jdbcType=INTEGER},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=INTEGER},
+      </if>
+      <if test="record.identityCard != null" >
+        identity_card = #{record.identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.identityType != null" >
+        identity_type = #{record.identityType,jdbcType=INTEGER},
+      </if>
+      <if test="record.alipay != null" >
+        alipay = #{record.alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weixin != null" >
+        weixin = #{record.weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avatar != null" >
+        avatar = #{record.avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.summary != null" >
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signature != null" >
+        signature = #{record.signature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.focusNumber != null" >
+        focus_number = #{record.focusNumber,jdbcType=BIGINT},
+      </if>
+      <if test="record.loveNumber != null" >
+        love_number = #{record.loveNumber,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="update_model_where_clause" />
+    </if>
+  </update>
+  <update id="updateById" parameterType="com.cetiti.user.model.User" >
+    <!--
+      WARNING - 根据主键更新指定字段的数据。
+      MyBatis代码工具自动生成，不要修改！
+    -->
+    update user
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="asker != null" >
+        asker = #{asker,jdbcType=INTEGER},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=INTEGER},
+      </if>
+      <if test="identityCard != null" >
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="identityType != null" >
+        identity_type = #{identityType,jdbcType=INTEGER},
+      </if>
+      <if test="alipay != null" >
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="weixin != null" >
+        weixin = #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null" >
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="focusNumber != null" >
+        focus_number = #{focusNumber,jdbcType=BIGINT},
+      </if>
+      <if test="loveNumber != null" >
+        love_number = #{loveNumber,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
