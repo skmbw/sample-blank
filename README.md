@@ -72,7 +72,9 @@ Java EE中常用的依赖注入的注解，主要有三套：
 * 对于声明组件（Spring Bean），@Service @Controller @Component @Repository这四个在本质上没有区别，之所以有这四个就是`见名知义`。
 Spring对他们的处理方式是相同的。看到这些注解，明白它们分别是什么类型的组件。
 * @Autowired是进行依赖注入（DI），规则是：默认autowired by type（按类型注入），可以通过@Qualifier显式指定 autowired by qualifier name（按名称注入）。
-* 对于JSR330这套新规范，Spring处理它们的方式，和Spring处理自己的注解的相同的方式。@Inject用于DI，规则是：默认autowired by type（按类型注入），可以通过@Named显式指定 autowired by qualifier name（按名称注入），
+
+对于JSR330这套新规范，Spring处理它们的方式，和Spring处理自己的注解的方式相同
+* @Inject用于DI，规则是：默认autowired by type（按类型注入），可以通过@Named显式指定 autowired by qualifier name（按名称注入），
 这里是通过@Named限定按名称注入，和Spring本身的有区别。另外JSR330的@Qualifier是用来限定注解的，和Spring的不一样。
 * @Named等价于@Service @Controller @Component @Repository的四个注解。这个就是用来声明Bean的。
 * @Scope用来声明Bean的声明周期（用于标记注解），@Singleton声明是一个单例
