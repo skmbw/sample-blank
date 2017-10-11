@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 // 事务传播是Required，可设置
 // 事务超时，默认是数据库的超时时间，可设置
 // 默认对运行时异常回滚，可设置
+// 默认readonly=false，非只读事务
 //@Transactional
 public class UserService extends BaseService<User, String> {
 
