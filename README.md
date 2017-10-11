@@ -66,7 +66,7 @@ Java EE中常用的依赖注入的注解，主要有三套：
 
 先给结论，就是：
 * 不推荐使用JSR250规范，首先它不全面，需要结合其他来使用，第二比较早的规范了。Spring早期为了兼容Java EE选择性的支持了它。
-* 推荐使用Spring自己的（绑定Spring环境），或者JSR330。单是不要混合使用这两套。个人推荐JSR330（android也可以使用）。
+* 推荐使用Spring自己的（绑定Spring环境），或者JSR330。但是不要混合使用这两套。个人推荐JSR330（android也可以使用）。
 
 简要介绍一下，首先说一下Spring这套：
 * 对于声明组件（Spring Bean），@Service @Controller @Component @Repository这四个在本质上没有区别，之所以有这四个就是`见名知义`。
