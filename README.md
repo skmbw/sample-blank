@@ -47,6 +47,7 @@ user包是一个样例代码，包含controller，dao，model，service四个子
 * 对应的配置在数据库配置文件中（application-mysql.xml）
 * 如果在service层要回滚事务，就抛出ServiceException，如果不需要回滚就抛出BasicException异常。
 * 如果使用切面（aop）事务控制，那么包结构要满足切面的要求，不能是乱定义的包结构和包名。将配置文件。
+* 如果使用注解事务配置，请参考UserService配置和application-mysql.xml底部的配置
 
 ## 切换环境
 如果要切换到mysql环境，只需要将application-context.xml文件中mysql的注释去掉，h2db的配置注释掉即可。当然也可将pom.xml中h2的驱动
