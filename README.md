@@ -63,9 +63,11 @@ Java EE中常用的依赖注入的注解，主要有三套：
 * spring自己提供的一套，主要有 @Autowired @Qualifier @Service @Controller @Component @Repository等
 * Java EE 5.0提供的一套（JSR250规范），主要是 @Resource @Resources，@PreDestroy @PostConstruct，后两者用于生命周期管理，前面俩用于资源注入
 * 全新的Java EE 6.0提供的（JSR330规范），主要有 @Inject @Named @Qualifier @Scope @Singleton
+
 先给结论，就是：
 * 不推荐使用JSR250规范，首先它不全面，需要结合其他来使用，第二比较早的规范了。Spring早期为了兼容Java EE选择性的支持了它。
 * 推荐使用Spring自己的（绑定Spring环境），或者JSR330。单是不要混合使用这两套。个人推荐JSR330（android也可以使用）。
+
 简要介绍一下，首先说一下Spring这套：
 * 对于声明组件（Spring Bean），@Service @Controller @Component @Repository这四个在本质上没有区别，之所以有这四个就是`见名知义`。
 Spring对他们的处理方式是相同的。看到这些注解，明白它们分别是什么类型的组件。
@@ -75,6 +77,7 @@ Spring对他们的处理方式是相同的。看到这些注解，明白它们�
 这里是通过@Named限定按名称注入，和Spring本身的有区别。另外JSR330的@Qualifier是用来限定注解的，和Spring的不一样。
 * @Named等价于@Service @Controller @Component @Repository的四个注解。这个就是用来声明Bean的。
 * @Scope用来声明Bean的声明周期（用于标记注解），@Singleton声明是一个单例
+
 最后说一下JSR250吧 @Resource：
 * 默认是autowired by field name（可以通过@Resource(name="beanName")来指定bean的名字）
 * 如果autowired by field name失败，会退化为autowired by type
