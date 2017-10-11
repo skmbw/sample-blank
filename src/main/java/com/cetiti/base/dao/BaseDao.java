@@ -1,9 +1,9 @@
 package com.cetiti.base.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.io.Serializable;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 /**
  * MyBatis通用泛型DAO。
@@ -28,7 +28,7 @@ public interface BaseDao<T, ID extends Serializable> {
      * @param params 删除条件
      * @return 被删除的记录数
      */
-    int deleteBulks(T params);
+    int deleteBatch(T params);
 
     /**
      * 根据主键删除记录。
@@ -99,7 +99,7 @@ public interface BaseDao<T, ID extends Serializable> {
      * @param params update的where条件
      * @return 被更新的记录数
      */
-    int updateBulks(@Param("record") T record, @Param("params") T params);
+    int updateBatch(@Param("record") T record, @Param("params") T params);
 
     /**
      * 根据主键更新指定字段的数据。

@@ -27,8 +27,8 @@ public abstract class BaseService<T, ID extends Serializable> {
         return baseDao.countBy(params);
     }
 
-    public int deleteBulks(T params) {
-        return baseDao.deleteBulks(params);
+    public int deleteBatch(T params) {
+        return baseDao.deleteBatch(params);
     }
 
     public int deleteById(ID id) {
@@ -63,8 +63,8 @@ public abstract class BaseService<T, ID extends Serializable> {
         return baseDao.uniqueForUpdate(params);
     }
 
-    public int updateBulks(T record, T params) {
-        return baseDao.updateBulks(record, params);
+    public int updateBatch(T record, T params) {
+        return baseDao.updateBatch(record, params);
     }
 
     public int updateById(T record) {

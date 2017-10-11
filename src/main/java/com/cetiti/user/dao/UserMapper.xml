@@ -267,7 +267,7 @@
     delete from user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteBulks" parameterType="com.cetiti.user.model.User" >
+  <delete id="deleteBatch" parameterType="com.cetiti.user.model.User" >
     <!--
       WARNING - 根据params所携带条件删除数据。
       MyBatis代码工具自动生成，不要修改！
@@ -460,7 +460,7 @@
       <include refid="model_where_clause" />
     </if>
   </select>
-  <update id="updateBulks" parameterType="map" >
+  <update id="updateBatch" parameterType="map" >
     <!--
       WARNING - 根据params所携带条件更新指定字段。
       MyBatis代码工具自动生成，不要修改！
