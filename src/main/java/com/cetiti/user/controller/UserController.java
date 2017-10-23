@@ -22,7 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user") // 这个url的规则一般是 类名去掉controller后缀，然后驼峰命名
 public class UserController {
-
+    // 日志就这么定义
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
